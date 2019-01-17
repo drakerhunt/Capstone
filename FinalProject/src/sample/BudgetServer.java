@@ -13,6 +13,7 @@ import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Date;
+import java.sql.*;
 
 public class BudgetServer extends Application {
 
@@ -34,11 +35,22 @@ public class BudgetServer extends Application {
                 Socket socket = serverSocket.accept();
                 DataInputStream inStream = new DataInputStream(socket.getInputStream());
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
-
                 Platform.runLater(() -> log.appendText("Server started at: " + new Date() + "\n"));
+                
+                Connection conn = DriverManager.getConnection("10.120.72.40", "csuser1", "csuser1");
+                while (true) {
+                    try {
+                        log.appendText(inStream.readUTF() + "\n");
+                    } catch (Exception ex) {
+                        log.appendText(ex.getMessage() +"\n");
+                    }
+                }
             } catch (Exception e) {
                 Platform.runLater(() -> log.appendText(e.getMessage()));
             }
         }).start();
+    }
+    public static void main(String[] args) {
+        launch(args);
     }
 }

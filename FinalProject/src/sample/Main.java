@@ -102,13 +102,20 @@ public class Main extends Application {
                 Socket socket = new Socket("localhost", 5000);
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 DataInputStream inStream = new DataInputStream(socket.getInputStream());
+                
+                outStream.writeUTF("Connected");
 
                 entryPane.newUserBT.setOnAction(o -> {
                     primaryStage.setScene(scene2);
                 });
                 newUserPane.submitBT.setOnAction(e -> {
-                    if (newUserPane.passwordTF.getText() == newUserPane.verifyPasswordPF.getText()) {
-                        
+                    if (newUserPane.passwordTF.getText().equals(newUserPane.verifyPasswordPF.getText())) {
+                        try {
+                            outStream.writeUTF(newUserPane.nameTF.getText());
+                            outStream.writeUTF(newUserPane.passwordTF.getText());
+                        } catch (Exception ex) {
+                            System.out.println(ex.getMessage());
+                        }
                     }
                 });
             } catch (Exception e) {
