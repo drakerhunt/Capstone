@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/sample/NewUserPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/sample/EntryPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/sample/EntryPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FinalProject/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FinalProject/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/EntryPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/EntryPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -97,7 +90,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
+            <state relative-caret-position="242">
               <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -250,7 +243,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547743637646" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547745161464" />
     <property name="dynamic.classpath" value="false" />
     <property name="recentsLimit" value="5" />
   </component>
@@ -356,12 +349,12 @@
       <option name="presentableId" value="Default" />
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
-      <workItem from="1547491011611" duration="17614000" />
+      <workItem from="1547491011611" duration="18764000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18916000" />
+    <option name="totallyTimeSpent" value="20066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="644" y="24" width="636" height="777" extended-state="0" />
@@ -471,7 +464,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="242">
           <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
