@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -82,12 +83,14 @@ public class Main extends Application {
         });
 
         EntryPane entryPane = new EntryPane();
+        NewUserPane newUserPane = new NewUserPane();
 
+        Scene scene2 = new Scene(newUserPane, 320, 275);
         Scene scene1 = new Scene(entryPane, 320, 275);
         Scene scene = new Scene(vBox, 320, 275);
+        primaryStage.setScene(scene1);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Client");
-        primaryStage.setScene(scene1);
         primaryStage.show();
 
         entryPane.submitBT.setOnAction(e -> {
@@ -99,6 +102,15 @@ public class Main extends Application {
                 Socket socket = new Socket("localhost", 5000);
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 DataInputStream inStream = new DataInputStream(socket.getInputStream());
+
+                entryPane.newUserBT.setOnAction(o -> {
+                    primaryStage.setScene(scene2);
+                });
+                newUserPane.submitBT.setOnAction(e -> {
+                    if (newUserPane.passwordTF.getText() == newUserPane.verifyPasswordPF.getText()) {
+                        
+                    }
+                });
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
