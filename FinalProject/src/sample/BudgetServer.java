@@ -13,6 +13,9 @@ import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Date;
+
+import com.mysql.cj.jdbc.MysqlDataSource;
+
 import java.sql.*;
 
 public class BudgetServer extends Application {
@@ -20,11 +23,12 @@ public class BudgetServer extends Application {
     @Override
     public void start(Stage primaryStage) {
         TextArea log = new TextArea();
+        log.setWrapText(true);
         BorderPane pane = new BorderPane();
         pane.setCenter(log);
 
 
-        Scene scene = new Scene(pane, 200, 200);
+        Scene scene = new Scene(pane, 300, 200);
         primaryStage.setTitle("Server");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -37,8 +41,13 @@ public class BudgetServer extends Application {
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 Platform.runLater(() -> log.appendText("Server started at: " + new Date() + "\n"));
 
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("10.120.72.40", "csuser1", "csuser1");
+                MysqlDataSource ds = new MysqlDataSource();
+                ds.setUser("csuser1");
+                ds.setPassword("csuser1");
+                ds.setDatabaseName("budgetDB");
+               
+//                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = ds.getConnection(); //DriverManager.getConnection("10.120.72.40", "csuser1", "csuser1");
                 try {
                     Statement stmt = conn.createStatement();
                     stmt.executeQuery("show budgetTable;");
