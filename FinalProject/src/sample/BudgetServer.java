@@ -31,13 +31,22 @@ public class BudgetServer extends Application {
 
         new Thread(() -> {
             try {
-                ServerSocket serverSocket = new ServerSocket(5000);
+                ServerSocket serverSocket = new ServerSocket(8000);
                 Socket socket = serverSocket.accept();
                 DataInputStream inStream = new DataInputStream(socket.getInputStream());
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 Platform.runLater(() -> log.appendText("Server started at: " + new Date() + "\n"));
-                
+
+                Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("10.120.72.40", "csuser1", "csuser1");
+                try {
+                    Statement stmt = conn.createStatement();
+                    stmt.executeQuery("show budgetTable;");
+                    conn.commit();
+                } catch (Exception e) {
+                    System.out.println("Failed to send");
+                }
+                System.out.println("Here I am!!!");
                 while (true) {
                     try {
                         log.appendText(inStream.readUTF() + "\n");

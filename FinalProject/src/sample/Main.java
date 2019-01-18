@@ -99,7 +99,7 @@ public class Main extends Application {
 
         new Thread(() -> {
             try {
-                Socket socket = new Socket("localhost", 5000);
+                Socket socket = new Socket("localhost", 8000);
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 DataInputStream inStream = new DataInputStream(socket.getInputStream());
                 
