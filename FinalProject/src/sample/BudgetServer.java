@@ -14,8 +14,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Date;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
-
+//import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.*;
 
 public class BudgetServer extends Application {
@@ -23,6 +22,9 @@ public class BudgetServer extends Application {
     @Override
     public void start(Stage primaryStage) {
         TextArea log = new TextArea();
+        log.setEditable(false);
+        log.setMouseTransparent(true);
+        log.setFocusTraversable(false);
         log.setWrapText(true);
         BorderPane pane = new BorderPane();
         pane.setCenter(log);
@@ -41,18 +43,18 @@ public class BudgetServer extends Application {
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 Platform.runLater(() -> log.appendText("Server started at: " + new Date() + "\n"));
 
-                MysqlDataSource ds = new MysqlDataSource();
-                ds.setUser("csuser1");
-                ds.setPassword("csuser1");
-                ds.setDatabaseName("budgetDB");
+//                MysqlDataSource ds = new MysqlDataSource();
+//                ds.setUser("csuser1");
+//                ds.setPassword("csuser1");
+//                ds.setDatabaseName("budgetDB");
                
-//                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = ds.getConnection(); //DriverManager.getConnection("10.120.72.40", "csuser1", "csuser1");
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://10.120.72.40:3306/budgetDB", "root", "root");
                 try {
                     Statement stmt = conn.createStatement();
                     stmt.executeQuery("show budgetTable;");
-                    conn.commit();
-                } catch (Exception e) {
+                    
+                } catch (SQLException e) {
                     System.out.println("Failed to send");
                 }
                 System.out.println("Here I am!!!");
