@@ -26,7 +26,7 @@ public class Main extends Application {
     double total = monthlyIncome;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) {
         Label label = new Label("Drake Hunt");
         Label expenseLB = new Label("Expense: $");
         Label expenseNameLB = new Label("Expense Name: ");

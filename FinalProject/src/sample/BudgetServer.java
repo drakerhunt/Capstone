@@ -43,16 +43,15 @@ public class BudgetServer extends Application {
                 DataOutputStream outStream = new DataOutputStream(socket.getOutputStream());
                 Platform.runLater(() -> log.appendText("Server started at: " + new Date() + "\n"));
 
-//                MysqlDataSource ds = new MysqlDataSource();
-//                ds.setUser("csuser1");
-//                ds.setPassword("csuser1");
-//                ds.setDatabaseName("budgetDB");
-               
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://10.120.72.40:3306/budgetDB", "root", "root");
+//              
+
                 try {
+                    //Class.forName("com.mysql.jdbc.Driver");
+                    System.out.println("Driver Loaded");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/budgetDB", "root", "password");
+                    System.out.println("Passed");
                     Statement stmt = conn.createStatement();
-                    stmt.executeQuery("show budgetTable;");
+                    System.out.println("Finally");
                     
                 } catch (SQLException e) {
                     System.out.println("Failed to send");
